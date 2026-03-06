@@ -1,33 +1,156 @@
-# Plagiarism-checker-Python
+📄 Plagiarism Checker System (Text + Image OCR)
 
-This repo consists of a source code of a Python script which detects plagiarism in a textual document using **cosine similarity**.
+A Python-based plagiarism detection system that compares documents and images by extracting text and measuring similarity using machine learning techniques.
 
-## How is it Done?
+The system reads text files and images, extracts textual content using OCR, converts them into numerical vectors, and calculates similarity to detect possible plagiarism.
 
-You might be wondering how plagiarism detection on textual data is done, well it ain't as complicated as you may think.
+This project combines:
 
-We all know that computers are good with numbers; so in order to compute the similarity between two text documents, the textual raw data is transformed into vectors => arrays of numbers and from that, we make use of basic knowledge of vectors to compute the similarity between them.
+Tesseract OCR for extracting text from images
 
-This repo contains a basic example on how to do that.
+scikit-learn for text vectorization and similarity analysis
 
-## Dependencies
+📌 Project Overview
 
-Before you begin playing with the source code, you might need to install dependencies just as shown below;
+Plagiarism detection is widely used in:
 
-```bash
-pip3 install -r requirements.txt
-```
+Academic submissions
 
-## Running the App
+Document verification
 
-To run this code you need to have your textual documents in your project directory with the **.txt** extension. When you run the script, it will automatically load all the documents with that extension and then compute the similarities between them as shown below;
+Content originality checking
 
-```bash
-$-> cd Plagiarism-checker-Python
-$ Plagiarism-checker-Python-> python3 app.py
-('john.txt', 'juma.txt', 0.5465972177348937)
-('fatma.txt', 'john.txt', 0.14806887549598566)
-('fatma.txt', 'juma.txt', 0.18643448370323362)
+Assignment evaluation systems
 
-```
+This system works by:
 
+1️⃣ Reading text documents
+2️⃣ Extracting text from images using OCR
+3️⃣ Converting text into numerical vectors
+4️⃣ Comparing vectors using cosine similarity
+5️⃣ Reporting plagiarism percentage
+
+⚙️ Features
+
+✔ Detects plagiarism between text files
+✔ Detects plagiarism between images and text
+✔ Uses OCR to extract text from images
+✔ Uses TF-IDF vectorization for feature extraction
+✔ Calculates similarity using Cosine Similarity
+✔ Supports multiple files simultaneously
+✔ Displays plagiarism percentage and status
+
+🧠 System Workflow
+Documents / Images
+        │
+        ▼
+Text Extraction
+(TXT + OCR)
+        │
+        ▼
+Text Preprocessing
+        │
+        ▼
+TF-IDF Vectorization
+        │
+        ▼
+Cosine Similarity
+        │
+        ▼
+Plagiarism Detection
+📂 Project Structure
+Plagiarism-Checker
+│
+├── app.py
+│
+├── documents
+│   ├── file1.txt
+│   ├── file2.txt
+│
+├── images
+│   ├── image1.png
+│   ├── image2.jpg
+│
+└── README.md
+🔧 Requirements
+
+Install the required libraries:
+
+pip install pytesseract pillow scikit-learn
+
+You must also install:
+
+Tesseract OCR
+
+Download from:
+
+https://github.com/UB-Mannheim/tesseract/wiki
+
+After installing, update the path inside the script:
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+▶️ Running the Project
+
+Run the program using:
+
+python app.py
+
+The system will:
+
+1️⃣ Load all .txt files from the documents folder
+2️⃣ Extract text from images in the images folder
+3️⃣ Convert all content into vectors
+4️⃣ Compare documents for similarity
+
+📊 Example Output
+PLAGIARISM CHECKER SYSTEM
+
+------------------------------------------------------------
+
+file1.txt vs file2.txt
+Similarity: 82.34%
+Status: 🚨 PLAGIARISM
+
+file1.txt vs image1.png
+Similarity: 54.12%
+Status: ⚠ SUSPICIOUS
+
+file2.txt vs image2.jpg
+Similarity: 21.45%
+Status: ✅ SAFE
+📈 Similarity Threshold
+Similarity Score	Status
+≥ 70%	🚨 Plagiarism
+50% – 69%	⚠ Suspicious
+< 50%	✅ Safe
+🛠 Technologies Used
+
+Python
+
+Tesseract OCR
+
+scikit-learn
+
+Pillow
+
+NumPy
+
+TF-IDF Vectorization
+
+Cosine Similarity
+
+🚀 Future Improvements
+
+Possible enhancements for this project:
+
+Sentence-level plagiarism detection
+
+PDF and DOCX file support
+
+Web-based interface
+
+Real-time plagiarism API
+
+Visualization of similarity scores
+
+Machine learning models for semantic similarity
